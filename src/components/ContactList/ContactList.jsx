@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+import { selectContacts, selectFilter } from 'redux/filterReducer';
 import {
   useDeleteContactMutation,
   useGetAllContactsQuery,
@@ -6,11 +8,18 @@ import {
 export const ContactList = () => {
   const [deleteContact] = useDeleteContactMutation();
   const { data, isFetching } = useGetAllContactsQuery();
+  const filterValue = useSelector(selectFilter);
+
+  const filteredContacts = () => {
+    return data.filter(contact =>
+      contact.name.toLowerCase().includes(filterValue.toLowerCase())
+    );
+  };
 
   return (
     <ul>
       {isFetching === false &&
-        data.map(({ name, number, id }) => {
+        filteredContacts().map(({ name, number, id }) => {
           return (
             <li key={id}>
               <p>

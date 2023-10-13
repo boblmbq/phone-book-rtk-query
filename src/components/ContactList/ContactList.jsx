@@ -5,8 +5,7 @@ import {
 
 export const ContactList = () => {
   const [deleteContact] = useDeleteContactMutation();
-  const { data, isFetching, refetch } = useGetAllContactsQuery();
-
+  const { data, isFetching } = useGetAllContactsQuery();
 
   return (
     <ul>
@@ -19,9 +18,8 @@ export const ContactList = () => {
               </p>
               <button
                 type="button"
-                onClick={ async () => {
+                onClick={async () => {
                   await deleteContact(id);
-                  refetch();
                 }}
               >
                 Delete

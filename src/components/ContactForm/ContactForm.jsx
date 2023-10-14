@@ -11,7 +11,7 @@ const LABEL_IDS = {
 const { nameId, numberId } = LABEL_IDS;
 
 export const ContactForm = () => {
-  const [updateContacts] = useAddContactMutation();
+  const [addConatct] = useAddContactMutation();
   const { data } = useGetAllContactsQuery();
 
   const onFormSubmit = async e => {
@@ -24,7 +24,7 @@ export const ContactForm = () => {
       return;
     }
 
-    await updateContacts({ name, number });
+    await addConatct({ name, number });
     
 
     e.target.reset();

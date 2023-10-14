@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
-import { filterChange } from 'redux/filterReducer';
+import { changeFilter } from 'redux/filterReducer';
 
 export const Filter = () => {
   const dispatch = useDispatch();
   return (
-    <input onChange={e => dispatch(filterChange(e.target.value))} type="text" />
+    <input onChange={e => dispatch(changeFilter(e.target.value))} type="text" />
   );
 };

@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectContacts, selectFilter } from 'redux/filterReducer';
+import { selectFilter } from 'redux/filterReducer';
 import {
   useDeleteContactMutation,
   useGetAllContactsQuery,
